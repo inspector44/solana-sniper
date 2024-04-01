@@ -1,0 +1,7 @@
+{
+	"name": "Bot App",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+    "forwardPorts": [5672, 8080, 15673, 5173],
+	"workspaceFolder": "/workspace"
+}

@@ -1,0 +1,61 @@
+{
+    "version": "2.0.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Launch Bot Backend",
+        "program": "${workspaceFolder}/solana-sniper-bot/server.ts",
+        "cwd": "${workspaceFolder}/solana-sniper-bot",
+        "args": [],
+        "runtimeArgs": ["-r", "ts-node/register"],
+        "env": {
+          "NODE_ENV": "development"
+        },
+        "console": "integratedTerminal"
+      }
+    ],
+    "tasks": [
+      // {
+      //   "type": "npm",
+      //   "script": "build",
+      //   "path": "vue3-vite-express-js-boilerplate",
+      //   "group": "build",
+      //   "problemMatcher": [],
+      //   "label": "npm: build - vue3-vite-express-js-boilerplate",
+      //   "detail": "vite build --mode development"
+      // },
+      // {
+      //   "label": "vite: dev server",
+      //   "type": "shell",
+      //   "command": "npm run dev",
+      //   "isBackground": true,
+      //   "problemMatcher": {
+      //     "owner": "custom",
+      //     "pattern": {
+      //       "regexp": ".*",
+      //       "file": 1,
+      //       "location": 2,
+      //       "message": 3
+      //     },
+      //     "background": {
+      //       "activeOnStart": true,
+      //       "beginsPattern": "^.*Development server running.*$",
+      //       "endsPattern": "^.*Compiled successfully.*$"
+      //     }
+      //   },
+      //   "options": {
+      //     "cwd": "${workspaceFolder}/sniper-ui"
+      //   },
+      //   "group": {
+      //     "kind": "build",
+      //     "isDefault": true
+      //   },
+      //   "presentation": {
+      //     "reveal": "always",
+      //     "panel": "new"
+      //   }
+      // }
+    ]
+  }
+  

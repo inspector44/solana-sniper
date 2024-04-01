@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity
+    depends_on:
+      - rabbitmq
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq
+    hostname: rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      - RABBITMQ_DEFAULT_USER=username
+      - RABBITMQ_DEFAULT_PASS=password
+    # volumes:
+    #   - rabbitmqdata:/var/lib/rabbitmq
+    #   - rabbitmqlog:/var/log/rabbitmq
+    #   - ./rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
+    #   - ./rabbitmq/definitions.json:/etc/rabbitmq/definitions.json:ro
+
+  rabbitmq-management:
+    image: rabbitmq:3-management
+    container_name: rabbitmq-management
+    hostname: rabbitmq-management
+    environment:
+      - RABBITMQ_DEFAULT_USER=username
+      - RABBITMQ_DEFAULT_PASS=password
+    ports:
+      - 15673:15672
+    depends_on:
+      - rabbitmq
+
+# volumes:
+#   rabbitmqdata:
+#   rabbitmqlog:

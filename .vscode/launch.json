@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "pwa-chrome",
+        "request": "launch",
+        "name": "Launch UI",
+        "url": "http://localhost:5173",
+        "webRoot": "${workspaceFolder}/sniper-ui"
+        // "preLaunchTask": "vite: dev server"
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Launch TypeScript Program",
+        "program": "${workspaceFolder}/solana-sniper-bot/server.ts",
+        "cwd": "${workspaceFolder}/solana-sniper-bot",
+        "args": [],
+        "runtimeArgs": ["-r", "ts-node/register"],
+        "env": {
+          "NODE_ENV": "development"
+        },
+        "console": "integratedTerminal",
+        "sourceMaps": true
+      }
+    ]
+  }
+  

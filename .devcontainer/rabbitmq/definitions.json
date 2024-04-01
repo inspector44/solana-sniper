@@ -1,0 +1,44 @@
+{
+    "queues": [
+        {
+            "name": "externally_configured_queue",
+            "vhost": "/",
+            "durable": true,
+            "auto_delete": false,
+            "arguments": {
+                "x-queue-type": "classic",
+                "x-dead-letter-exchange": "externally_configured_queue_deadletter_exchange"
+            }
+        },
+        {
+            "name": "externally_configured_deadletter_queue",
+            "vhost": "/",
+            "durable": true,
+            "auto_delete": false,
+            "arguments": {
+                "x-queue-type": "classic"
+            }
+        }
+    ],
+    "exchanges": [
+        {
+            "name": "externally_configured_queue_deadletter_exchange",
+            "vhost": "/",
+            "type": "fanout",
+            "durable": true,
+            "auto_delete": false,
+            "internal": true,
+            "arguments": {}
+        }
+    ],
+    "bindings": [
+        {
+            "source": "externally_configured_queue_deadletter_exchange",
+            "vhost": "/",
+            "destination": "externally_configured_deadletter_queue",
+            "destination_type": "queue",
+            "routing_key": "",
+            "arguments": {}
+        }
+    ]
+}
